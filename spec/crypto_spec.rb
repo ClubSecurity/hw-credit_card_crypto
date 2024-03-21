@@ -45,7 +45,7 @@ data = YAML.load_file('spec/test_documents.yml')
 
 data['Documents'].each do |document|
   describe 'Using Double Transposition cipher' do
-    keys = [3, 345_345, 696_969]
+    keys = [3, 345_345, 696_969, 37]
 
     keys.each do |key|
       it "should encrypt document with key #{key}" do
