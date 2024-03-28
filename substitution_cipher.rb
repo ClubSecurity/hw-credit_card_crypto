@@ -1,4 +1,4 @@
-# Frozen_string_literal: true
+# frozen_string_literal: true
 
 module SubstitutionCipher
   # Encrypt and decrypt document using Caesar cipher

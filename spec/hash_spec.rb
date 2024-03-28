@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../credit_card'
 require 'minitest/autorun'
 
@@ -36,7 +38,7 @@ describe 'Test hashing requirements' do
 
     describe 'Check for unique hashes' do
       # TODO: Check that each card produces a different hash than other cards
-      cards.each_with_index do |card, index|
+      cards.each do |card|
         it 'should produce a different hash than other cards' do
           other_cards = cards.reject { |c| c == card }
           other_cards.each do |other_card|
@@ -60,7 +62,7 @@ describe 'Test hashing requirements' do
 
       describe 'Check for unique hashes' do
         # TODO: Check that each card produces a different hash than other cards
-        cards.each_with_index do |card, index|
+        cards.each do |card|
           it 'should produce a different hash than other cards' do
             other_cards = cards.reject { |c| c == card }
             other_cards.each do |other_card|

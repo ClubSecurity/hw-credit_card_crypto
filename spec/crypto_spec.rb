@@ -3,6 +3,7 @@
 require_relative '../credit_card'
 require_relative '../substitution_cipher'
 require_relative '../double_trans_cipher'
+require_relative '../sk_cipher'
 require 'minitest/autorun'
 require 'yaml'
 
@@ -60,6 +61,22 @@ data['Documents'].each do |document|
         _(enc).wont_be_nil
         _(enc).wont_equal document
       end
+    end
+  end
+
+  describe 'Using modern symmetric key cipher' do
+    it 'should encrypt card information' do
+      key = ModernSymmetricCipher.generate_new_key
+      enc = ModernSymmetricCipher.encrypt(document, key)
+      _(enc).wont_equal document.to_s
+      _(enc).wont_be_nil
+    end
+
+    it 'should decrypt text' do
+      key = ModernSymmetricCipher.generate_new_key
+      enc = ModernSymmetricCipher.encrypt(document, key)
+      dec = ModernSymmetricCipher.decrypt(enc, key)
+      _(dec).must_equal document.to_s
     end
   end
 end

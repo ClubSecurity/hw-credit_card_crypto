@@ -7,4 +7,5 @@ gem 'minitest'
 
 # Security Gems
 gem 'bundler-audit'
+gem 'rbnacl'
 gem 'rubocop'
