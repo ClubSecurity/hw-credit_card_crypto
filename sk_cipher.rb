@@ -2,6 +2,7 @@
 
 require 'rbnacl'
 require 'base64'
+# Encrypt and decrypt document using modern symmetric cipher
 module ModernSymmetricCipher
   def self.generate_new_key
     # TODO: Return a new key as a Base64 string
